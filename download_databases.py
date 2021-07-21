@@ -40,7 +40,7 @@ def process_database(db_dir, db_name, args):
             os.system('bash {}'.format(bash_file))
         else:
             smk_file = os.path.join(db_dir, "process_{}.smk".format(db_name))
-            cmd = ("snakemake --config configfile={} "
+            cmd = ("snakemake --cores 4 --config configfile={} "
                 "-s {}".format(args.file, smk_file))
             os.system(cmd)
     else:
